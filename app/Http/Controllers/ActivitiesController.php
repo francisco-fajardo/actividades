@@ -42,6 +42,12 @@ class ActivitiesController extends Controller
      */
     public function userIndex()
     {
-        return view('user.activities');
+        $activities = Activity::all();
+
+        foreach ($activities as $activity) {
+            $activity->course = Course::findOrFail($activity->course_id);
+        }
+
+        return view('user.activities.index')->withActivities($activities);
     }
 }

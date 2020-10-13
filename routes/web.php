@@ -65,13 +65,29 @@ Route::prefix('user')->group(function () {
 
         // Activity Routes
         Route::prefix('activity')->group(function () {
-            Route::get('/new', 'ActivityController@showStoreForm')->name('user.activity.store');
-            Route::post('/new', 'ActivityController@store');
+            Route::get('/new', 'ActivityController@showStoreForm')->name('user.activity.storeForm');
+            Route::post('/new', 'ActivityController@store')->name('user.activity.store');
         });
 
         // Activities Routes
         Route::prefix('activities')->group(function () {
             Route::get('/', 'ActivitiesController@userIndex')->name('user.activities');
+        });
+
+        /**
+         * Admin Routes
+         */
+        Route::middleware('isAdmin')->group(function () {
+            // Users Routes
+            Route::prefix('users')->group(function () {
+                Route::get('/', 'UsersController@index')->name('user.users.index');
+                Route::get('/{id}', 'UsersController@show')->name('user.users.show');
+            });
+
+            // Courses Routes
+            Route::prefix('courses')->group(function () {
+                Route::get('/', 'CoursesController@userIndex')->name('user.courses.index');
+            });
         });
     });
 });

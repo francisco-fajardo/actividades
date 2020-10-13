@@ -9,11 +9,29 @@
 
 <div class="row">
     <div class="col s12 m6 center">
-        <a class="waves-effect waves-light btn-large" href="{{ route('user.activities') }}"><i class="material-icons left"></i> Actividades</a>
+        <a class="waves-effect waves-light btn-large" style="width: 100%" href="{{ route('user.activities') }}"><i class="material-icons left">description</i> Actividades</a>
+
+        <p>Publicadas: <strong>0</strong></p>
     </div>
-</div>
+
+    <div class="col s12 m6 center">
+        <a class="waves-effect waves-light btn-large" style="width: 100%" href="#!" disabled><i class="material-icons left">books</i> Libros</a>
+
+        <p>Publicados: <strong>0</strong></p>
+    </div>
 
 @if (Auth::user()->isAdmin())
-<h1>You are admin!</h1>
+    <div class="col s12 m6 center">
+        <a class="waves-effect waves-light btn-large" style="width: 100%" href="{{ route('user.users.index') }}"><i class="material-icons left">person</i> Usuarios</a>
+
+        <p>Usuarios: <strong>{{ $usersCount }}</strong></p>
+    </div>
+
+    <div class="col s12 m6 center">
+        <a class="waves-effect waves-light btn-large" style="width: 100%" href="{{ route('user.courses.index') }}"><i class="material-icons left">meeting_room</i> Cursos</a>
+
+        <p>Cursos: <strong>{{ $coursesCount }}</strong></p>
+    </div>
 @endif
+</div>
 @endsection
