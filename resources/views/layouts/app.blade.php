@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="{{ asset('icons/ms-icon-144x144.png') }}" />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>{{ config('app.name', 'Actividades Fajardo') }} - @yield('title')</title>
+
+    <meta name="author" content="E.T. &quot;Francisco Fajardo&quot;" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="og:title" content="{{ config('app.name', 'Actividades Fajardo') }} - @yield('title')" />
+    <meta name="og:type" content="website" />
+    <meta name="og:site_name" content="E.T. &quot;Francisco Fajardo&quot;" />
+    <meta name="og:locale" content="es_VE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('icons/apple-icon-57x57.png') }}" />
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('icons/apple-icon-60x60.png') }}" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('icons/apple-icon-72x72.png') }}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('icons/apple-icon-76x76.png') }}" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('icons/apple-icon-114x114.png') }}" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('icons/apple-icon-120x120.png') }}" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('icons/apple-icon-144x144.png') }}" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('icons/apple-icon-152x152.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('icons/apple-icon-180x180.png') }}" />
+
+    <link rel="icon" sizes="192x192" href="{{ asset('icons/android-icon-192x192.png') }}" />
+    <link rel="icon" sizes="32x32" href="{{ asset('icons/favicon-32x32.png') }}" />
+    <link rel="icon" sizes="96x96" href="{{ asset('icons/favicon-96x96.png') }}" />
+    <link rel="icon" sizes="16x16" href="{{ asset('icons/favicon-16x16.png') }}" />
+
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
+
+    <link rel="manifest" href="{{ asset('manifest.webmanifest')  }}" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha512-UDJtJXfzfsiPPgnI5S1000FPLBHMhvzAMX15I+qG2E2OAzC9P1JzUwJOfnypXiOH7MRPaqzhPbBGDNNj7zBfoA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+@include('parcials.navbar')
+
+    <main>
+        <div class="container">
+@yield('content')
+        </div>
+    </main>
+
+@include('parcials.footer')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+</body>
+
+</html>
