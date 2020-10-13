@@ -22,6 +22,8 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
+        return redirect(route('activities.show', $id));
+
         // Course
         $course = Course::findOrFail($id);
 
