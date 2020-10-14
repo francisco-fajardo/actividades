@@ -32,7 +32,6 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 */
 Route::prefix('courses')->group(function () {
     Route::get('/', 'CoursesController@index')->name('courses.index');
-    Route::get('/{id}', 'CoursesController@show')->name('courses.show');
 });
 
 /*
@@ -41,7 +40,6 @@ Route::prefix('courses')->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::prefix('activities')->group(function () {
-    Route::get('/', 'ActivitiesController@index')->name('activities.index');
     Route::get('/{id}', 'ActivitiesController@show')->name('activities.show');
 });
 
@@ -65,13 +63,17 @@ Route::prefix('user')->group(function () {
 
         // Activity Routes
         Route::prefix('activity')->group(function () {
-            Route::get('/new', 'ActivityController@showStoreForm')->name('user.activity.storeForm');
+            Route::get('/new', 'ActivityController@new')->name('user.activity.new');
             Route::post('/new', 'ActivityController@store')->name('user.activity.store');
+            Route::get('/{id}/edit', 'ActivityController@edit')->name('user.activity.edit');
+            Route::post('/{id}/edit', 'ActivityController@update')->name('user.activity.update');
+            Route::post('/{id}/delete', 'ActivityController@destroy')->name('user.activity.delete');
+            Route::post('/upload', 'UploadController@upload')->name('user.activity.upload');
         });
 
         // Activities Routes
         Route::prefix('activities')->group(function () {
-            Route::get('/', 'ActivitiesController@userIndex')->name('user.activities');
+            Route::get('/', 'ActivitiesController@userIndex')->name('user.activities.index');
         });
 
         /**
@@ -81,7 +83,10 @@ Route::prefix('user')->group(function () {
             // Users Routes
             Route::prefix('users')->group(function () {
                 Route::get('/', 'UsersController@index')->name('user.users.index');
-                Route::get('/{id}', 'UsersController@show')->name('user.users.show');
+                Route::get('/new', 'UsersController@new')->name('user.users.new');
+                Route::post('/new', 'UsersController@store')->name('user.users.store');
+                Route::get('/{id}/edit', 'UsersController@edit')->name('user.users.edit');
+                Route::put('/{id}/edit', 'UsersController@update')->name('user.users.update');
             });
 
             // Courses Routes

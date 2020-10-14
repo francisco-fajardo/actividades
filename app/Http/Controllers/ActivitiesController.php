@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\User;
 use App\Activity;
+use Illuminate\Support\Facades\Auth;
 
 class ActivitiesController extends Controller
 {
@@ -42,7 +43,7 @@ class ActivitiesController extends Controller
      */
     public function userIndex()
     {
-        $activities = Activity::all();
+        $activities = Activity::where('user_id', Auth::user()->id)->get();
 
         foreach ($activities as $activity) {
             $activity->course = Course::findOrFail($activity->course_id);

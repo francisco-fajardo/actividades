@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\Course;
 use App\Department;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -32,8 +34,9 @@ class UsersController extends Controller
     {
         $usersCount = User::count();
         $coursesCount = Course::count();
+        $activitiesCount = Activity::where('user_id', Auth::user()->id)->count();
 
-        return view('user.dashboard')->withUsersCount($usersCount)->withCoursesCount($coursesCount);
+        return view('user.dashboard')->withUsersCount($usersCount)->withCoursesCount($coursesCount)->withActivitiesCount($activitiesCount);
     }
 
     /**
@@ -56,7 +59,7 @@ class UsersController extends Controller
      *
      * @param int $id The id of the user.
      */
-    public function show($id)
+    public function edit($id)
     {
         // User
         $user = User::findOrFail($id);
@@ -64,6 +67,16 @@ class UsersController extends Controller
         // All Departments
         $departments = Department::all();
 
-        return view('user.users.show')->withUser($user)->withDepartments($departments);
+        return view('user.users.edit')->withUser($user)->withDepartments($departments);
+    }
+
+    /**
+     * Show the form to store a new User.
+     */
+    public function new()
+    {
+        $departments = Department::all();
+
+        return view('user.users.new')->withDepartments($departments);
     }
 }

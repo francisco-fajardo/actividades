@@ -12,24 +12,13 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return view('courses.index')->withCourses(Course::all());
-    }
-
-    /**
-     * Get a Course.
-     *
-     * @param int $id The id of the Course.
-     */
-    public function show($id)
-    {
-        return redirect(route('activities.show', $id));
-
-        // Course
-        $course = Course::findOrFail($id);
+        $courses = Course::all();
 
         // Activities Count
-        $activitiesCount = Activity::where('course_id', $id)->count();
+        foreach ($courses as $course) {
+            $course->activity_count = Activity::where('course_id', $course->id)->count();
+        }
 
-        return view('courses.show')->withCourse($course)->withActivitiesCount($activitiesCount);
+        return view('courses.index')->withCourses($courses);
     }
 }

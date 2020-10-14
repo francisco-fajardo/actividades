@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col s12 m6 center">
-        <a class="waves-effect waves-light btn-large" style="width: 100%" href="{{ route('user.activities') }}"><i class="material-icons left">description</i> Actividades</a>
+        <a class="waves-effect waves-light btn-large" style="width: 100%" href="{{ route('user.activities.index') }}"><i class="material-icons left">description</i> Actividades</a>
 
         <p>Publicadas: <strong>0</strong></p>
     </div>
@@ -17,7 +17,7 @@
     <div class="col s12 m6 center">
         <a class="waves-effect waves-light btn-large" style="width: 100%" href="#!" disabled><i class="material-icons left">books</i> Libros</a>
 
-        <p>Publicados: <strong>0</strong></p>
+        <p>Publicados: <strong>{{ $activitiesCount }}</strong></p>
     </div>
 
 @if (Auth::user()->isAdmin())

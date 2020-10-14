@@ -1,4 +1,4 @@
-<nav>
+<nav class="indigo darken-2">
 @section('navbar')
     <div class="nav-wrapper container">
         <a href="{{ url('/') }}" class="brand-logo">

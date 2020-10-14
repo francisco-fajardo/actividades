@@ -9,5 +9,7 @@
     <h5>{{ $course->full_name }}</h5>
 </div>
 
+<div class="browser-default">
 {!! $activity->activity !!}
+</div>
 @endsection
