@@ -8,6 +8,7 @@ use App\Department;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Input\Input;
 
 class UsersController extends Controller
 {
@@ -25,7 +26,7 @@ class UsersController extends Controller
             'department_id' => 'required|exists:departments,id',
             'username' => 'required|unique:users,username',
             'password' => 'required|confirmed',
-            'admin' => 'nullable|boolean'
+            // 'admin' => 'nullable|boolean'
         ];
     }
 
@@ -90,7 +91,9 @@ class UsersController extends Controller
         ]);
 
         $user = User::findOrFail($id);
-        $user->update($request->all());
+        $input = $request->all();
+        $input['admin'] = Input::get('admin') === 'on' ? true : false;
+        $user->update($input);
 
         return redirect(route('user.users.index'));
     }
@@ -114,7 +117,9 @@ class UsersController extends Controller
     {
         $request->validate($this->rules());
 
-        User::create($request->all());
+        $input = $request->all();
+        $input['admin'] = Input::get('admin') === 'on' ? true : false;
+        User::create($input);
 
         return redirect(route('user.users.index'));
     }

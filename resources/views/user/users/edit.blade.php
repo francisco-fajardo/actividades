@@ -62,7 +62,7 @@
 
         <div class="col s12 center">
             <label>
-                <input type="checkbox" name="admin" class="filled-in" value="true" @if ($user->isAdmin()) checked @endif />
+                <input type="checkbox" name="admin" class="filled-in" @if ($user->isAdmin()) checked @endif />
                 <span>Administrador</span>
             </label>
         </div>

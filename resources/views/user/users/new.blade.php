@@ -81,7 +81,7 @@
 
         <div class="col s12 center">
             <label>
-                <input type="checkbox" name="admin" class="filled-in" value="true" {{ old('admin') ? 'checked' : '' }} />
+                <input type="checkbox" name="admin" class="filled-in" {{ old('admin') ? 'checked' : '' }} />
                 <span>Administrador</span>
             </label>
         </div>
