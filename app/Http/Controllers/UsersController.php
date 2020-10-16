@@ -8,7 +8,6 @@ use App\Department;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\Console\Input\Input;
 
 class UsersController extends Controller
 {
@@ -92,7 +91,7 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
         $input = $request->all();
-        $input['admin'] = Input::get('admin') === 'on' ? true : false;
+        $input['admin'] = $request->input('admin') === 'on' ? true : false;
         $user->update($input);
 
         return redirect(route('user.users.index'));
@@ -118,7 +117,7 @@ class UsersController extends Controller
         $request->validate($this->rules());
 
         $input = $request->all();
-        $input['admin'] = Input::get('admin') === 'on' ? true : false;
+        $input['admin'] = $request->input('admin') === 'on' ? true : false;
         User::create($input);
 
         return redirect(route('user.users.index'));
