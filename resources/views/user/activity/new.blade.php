@@ -40,10 +40,11 @@
 @endsection
 
 @section('endbody')
-<script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/full/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('activity', {
-        'language': 'es'
+        'language': 'es',
+        'height': '300px'
     });
 </script>
 @endsection
