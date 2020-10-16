@@ -6,6 +6,7 @@ use App\Activity;
 use App\Course;
 use App\Department;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -23,7 +24,8 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users,email',
             'department_id' => 'required|exists:departments,id',
             'username' => 'required|unique:users,username',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'admin' => 'nullable|boolean'
         ];
     }
 
@@ -55,7 +57,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Show a user.
+     * Show the form to update a User.
      *
      * @param int $id The id of the user.
      */
@@ -71,6 +73,29 @@ class UsersController extends Controller
     }
 
     /**
+     * Update a user.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id The id of the User.
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'department_id' => 'required|exists:departments,id',
+            'username' => 'required',
+            'admin' => 'nullable|boolean'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        return redirect(route('user.users.index'));
+    }
+
+    /**
      * Show the form to store a new User.
      */
     public function new()
@@ -78,5 +103,19 @@ class UsersController extends Controller
         $departments = Department::all();
 
         return view('user.users.new')->withDepartments($departments);
+    }
+
+    /**
+     * Store a new user.
+     *
+     * @param \Illuminate\Http\Request $request
+     */
+    public function store(Request $request)
+    {
+        $request->validate($this->rules());
+
+        User::create($request->all());
+
+        return redirect(route('user.users.index'));
     }
 }

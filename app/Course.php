@@ -16,6 +16,11 @@ class Course extends Model
     ];
 
     /**
+     * Disable timestamps.
+     */
+    public $timestamps = false;
+
+    /**
      * Get the Course's full name.
      *
      * @param string $value

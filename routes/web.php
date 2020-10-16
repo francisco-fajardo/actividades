@@ -68,7 +68,6 @@ Route::prefix('user')->group(function () {
             Route::get('/{id}/edit', 'ActivityController@edit')->name('user.activity.edit');
             Route::post('/{id}/edit', 'ActivityController@update')->name('user.activity.update');
             Route::post('/{id}/delete', 'ActivityController@destroy')->name('user.activity.delete');
-            Route::post('/upload', 'UploadController@upload')->name('user.activity.upload');
         });
 
         // Activities Routes
@@ -86,12 +85,17 @@ Route::prefix('user')->group(function () {
                 Route::get('/new', 'UsersController@new')->name('user.users.new');
                 Route::post('/new', 'UsersController@store')->name('user.users.store');
                 Route::get('/{id}/edit', 'UsersController@edit')->name('user.users.edit');
-                Route::put('/{id}/edit', 'UsersController@update')->name('user.users.update');
+                Route::post('/{id}/edit', 'UsersController@update')->name('user.users.update');
             });
 
             // Courses Routes
             Route::prefix('courses')->group(function () {
                 Route::get('/', 'CoursesController@userIndex')->name('user.courses.index');
+                Route::get('/new', 'CoursesController@new')->name('user.courses.new');
+                Route::post('/new', 'CoursesController@store')->name('user.courses.store');
+                Route::get('/{id}/edit', 'CoursesController@edit')->name('user.courses.edit');
+                Route::post('/{id}/edit', 'CoursesController@update')->name('user.courses.update');
+                Route::post('/{id}/delete', 'CoursesController@destroy')->name('user.courses.delete');
             });
         });
     });

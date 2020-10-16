@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
 
             $table->string('year');
             $table->string('career');
-            $table->string('section');
+            $table->string('section')->default('U');
         });
     }
 

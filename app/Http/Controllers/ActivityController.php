@@ -66,7 +66,6 @@ class ActivityController extends Controller
 
         $input = $request->all();
         $input['user_id'] = Auth::user()->id;
-        UploadController::validate($request);
         Activity::create($input);
 
         return redirect(route('user.activities.index'));
@@ -104,14 +103,14 @@ class ActivityController extends Controller
         $input['user_id'] = Auth::user()->id;
         $activity->update($input);
 
-        return redirect()->back();
+        return redirect(route('user.activities.index'));
     }
 
     /**
      * Delete a Activity.
      *
      * @param int $id The id of the activity to delete.
-    */
+     */
     public function destroy($id)
     {
         $activity = Activity::findOrFail($id);

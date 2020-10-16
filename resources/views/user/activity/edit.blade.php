@@ -30,14 +30,14 @@
         <div class="col s12">
             <textarea placeholder="Escriba aquí su actividad" name="activity" id="editor">{!! $activity->activity !!}</textarea>
         </div>
-    </div>
 
-    <div class="col s12 m6 center">
-        <button class="waves-effect waves-light btn-large" type="submit" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
-    </div>
+        <div class="col s12 m6 center">
+            <button class="waves-effect waves-light btn-large" type="submit" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
+        </div>
 
-    <div class="col s12 m6 center">
-        <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
+        <div class="col s12 m6 center">
+            <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
+        </div>
     </div>
 </form>
 
@@ -47,15 +47,10 @@
 @endsection
 
 @section('endbody')
-<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/translations/es.js"></script>
+<script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
 <script>
-    ClassicEditor
-        .create(document.getElementById('editor'), {
-            'language': 'es'
-        })
-        .catch(function (err) {
-            console.error(err);
-        });
+    CKEDITOR.replace('activity', {
+        'language': 'es'
+    });
 </script>
 @endsection

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('department_id');
             $table->string('username')->unique();
             $table->string('password');
-            $table->boolean('admin');
+            $table->boolean('admin')->default(false);
 
             $table->rememberToken();
             $table->timestamps();
