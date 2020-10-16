@@ -13,8 +13,3 @@
 {!! $activity->activity !!}
 </div>
 @endsection
-
-@section('endbody')
-<script src="{{ asset('js/vendor/ckeditor/plugins/chart/lib/chart.min.js') }}"></script>
-<script src="{{ asset('js/vendor/ckeditor/plugins/chart/widget2chart.js') }}"></script>
-@endsection
