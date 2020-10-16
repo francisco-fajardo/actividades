@@ -118,4 +118,17 @@ class UsersController extends Controller
 
         return redirect(route('user.users.index'));
     }
+
+    /**
+     * Delete a User.
+     *
+     * @param int $id The id of the user.
+     */
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect(route('user.users.index'));
+    }
 }

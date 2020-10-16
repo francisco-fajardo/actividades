@@ -62,7 +62,7 @@
 
         <div class="col s12 center">
             <label>
-                <input type="checkbox" name="admin" class="filled-in"@if ($user->isAdmin()) checked="true" @endif />
+                <input type="checkbox" name="admin" class="filled-in" value="true" @if ($user->isAdmin()) checked @endif />
                 <span>Administrador</span>
             </label>
         </div>
@@ -72,8 +72,12 @@
         </div>
 
         <div class="col s12 m6 center">
-            <button class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
+            <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>
+</form>
+
+<form id="delete-form" action="{{ route('user.users.delete', $user) }}" method="POST">
+    @csrf
 </form>
 @endsection

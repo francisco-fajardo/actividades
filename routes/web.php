@@ -86,6 +86,7 @@ Route::prefix('user')->group(function () {
                 Route::post('/new', 'UsersController@store')->name('user.users.store');
                 Route::get('/{id}/edit', 'UsersController@edit')->name('user.users.edit');
                 Route::post('/{id}/edit', 'UsersController@update')->name('user.users.update');
+                Route::post('/{id}/delete', 'UsersController@destroy')->name('user.users.delete');
             });
 
             // Courses Routes
