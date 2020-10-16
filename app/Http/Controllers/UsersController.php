@@ -85,13 +85,12 @@ class UsersController extends Controller
             'last_name' => 'required',
             'email' => 'required|email',
             'department_id' => 'required|exists:departments,id',
-            'username' => 'required',
-            'admin' => 'nullable|boolean'
+            'username' => 'required'
         ]);
 
         $user = User::findOrFail($id);
         $input = $request->all();
-        $input['admin'] = $request->input('admin') === 'on' ? true : false;
+        $input['admin'] = $request->input('admin') === 'on';
         $user->update($input);
 
         return redirect(route('user.users.index'));
@@ -117,7 +116,7 @@ class UsersController extends Controller
         $request->validate($this->rules());
 
         $input = $request->all();
-        $input['admin'] = $request->input('admin') === 'on' ? true : false;
+        $input['admin'] = $request->input('admin') === 'on';
         User::create($input);
 
         return redirect(route('user.users.index'));
