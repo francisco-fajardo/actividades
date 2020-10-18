@@ -27,7 +27,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
 
         // Activities Count
         foreach ($courses as $course) {
@@ -42,7 +42,7 @@ class CoursesController extends Controller
      */
     public function userIndex()
     {
-        return view('user.courses.index')->withCourses(Course::all());
+        return view('user.courses.index')->withCourses(Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get());
     }
 
     /**

@@ -10,14 +10,6 @@ use Illuminate\Support\Facades\Auth;
 class ActivitiesController extends Controller
 {
     /**
-     * Get all Activities.
-     */
-    public function index()
-    {
-        return view('activities.index')->withCourses(Activity::all());
-    }
-
-    /**
      * Get Activities from a Course.
      *
      * @param int $id The id of the Course.

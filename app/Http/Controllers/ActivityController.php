@@ -82,7 +82,7 @@ class ActivityController extends Controller
         if ($activity->user_id !== Auth::user()->id && Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
 
         $departments = Department::all();
-        $courses = Course::all();
+        $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
 
         return view('user.activity.edit')->withActivity($activity)->withDepartments($departments)->withCourses($courses);
     }
