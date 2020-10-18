@@ -36,6 +36,18 @@ class DepartmentsSeeder extends Seeder
                 'name' => 'Construcción Civil',
                 'description' => 'Departamento de Construcción Civil',
             ],
+            [
+                'name' => 'Idiomas',
+                'description' => 'Departamento de Idiomas',
+            ],
+            [
+                'name' => 'Educación Física',
+                'description' => 'Departamento de Educación Física',
+            ],
+            [
+                'name' => 'Biología',
+                'description' => 'Departamento de Biología',
+            ],
         ]);
     }
 }
