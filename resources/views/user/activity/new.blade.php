@@ -50,11 +50,8 @@
         .create(document.getElementById('activity'), {
             'language': 'es'
         })
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(err => {
+        .catch(function (err) {
             console.error(err);
-        })
+        });
 </script>
 @endsection
