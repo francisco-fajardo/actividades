@@ -14,4 +14,9 @@ class Department extends Model
     protected $fillable = [
         'name', 'description',
     ];
+
+    /**
+     * Disable timestamps.
+     */
+    public $timestamps = false;
 }

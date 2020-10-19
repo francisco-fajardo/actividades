@@ -34,6 +34,12 @@
 
         <p>Cursos: <strong>{{ $coursesCount }}</strong></p>
     </div>
+
+    <div class="col s8 offset-s2 center">
+        <a class="waves-effect waves-light btn-large" style="width: 100%" href="{{ route('user.departments.index') }}"><i class="material-icons left">meeting_room</i> Departamentos</a>
+
+        <p>Departamentos: <strong>{{ $departmentsCount }}</strong></p>
+    </div>
 @endif
 </div>
 @endsection

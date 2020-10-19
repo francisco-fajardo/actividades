@@ -50,6 +50,7 @@ Route::prefix('activities')->group(function () {
 */
 Route::prefix('activity')->group(function () {
     Route::get('/{id}', 'ActivityController@show')->name('activity.show');
+	Route::get('/{id}/download', 'ActivityController@download')->name('activity.download');
 });
 
 /*
@@ -97,6 +98,16 @@ Route::prefix('user')->group(function () {
                 Route::get('/{id}/edit', 'CoursesController@edit')->name('user.courses.edit');
                 Route::post('/{id}/edit', 'CoursesController@update')->name('user.courses.update');
                 Route::post('/{id}/delete', 'CoursesController@destroy')->name('user.courses.delete');
+            });
+
+            // Departments Routes
+            Route::prefix('departments')->group(function () {
+                Route::get('/', 'DepartmentsController@index')->name('user.departments.index');
+                Route::get('/new', 'DepartmentsController@new')->name('user.departments.new');
+                Route::post('/new', 'DepartmentsController@store')->name('user.departments.store');
+                Route::get('/{id}/edit', 'DepartmentsController@edit')->name('user.departments.edit');
+		Route::post('/{id}/edit', 'DepartmentsController@update')->name('user.departments.update');
+		Route::post('/{id}/delete', 'DepartmentsController@destroy')->name('user.departments.delete');
             });
         });
     });

@@ -24,12 +24,15 @@
 
         <div class="input-field col s12 m6">
             <i class="material-icons prefix">description</i>
-            <input id="subject" name="subject" type="text" class="validate" required>
+            <input id="subject" name="subject" type="text" class="validate" required value="{{ old('subject') }}" />
             <label for="subject">Asignatura</label>
+            @if ($errors->has('subject'))
+            <span class="helper-text" data-error="{{ $errors->first('subject') }}"></span>
+            @endif
         </div>
 
         <div class="col s12">
-            <textarea placeholder="Escriba aquí su actividad" name="activity" id="activity"></textarea>
+            <textarea placeholder="Escriba aquí su actividad" name="activity" id="activity">{{ old('activity') }}</textarea>
         </div>
     </div>
 
@@ -40,11 +43,18 @@
 @endsection
 
 @section('endbody')
-<script src="https://cdn.ckeditor.com/4.15.0/full/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/translations/es.js"></script>
 <script>
-    CKEDITOR.replace('activity', {
-        'language': 'es',
-        'height': '300px'
-    });
+    ClassicEditor
+        .create(document.getElementById('activity'), {
+            'language': 'es'
+        })
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(err => {
+            console.error(err);
+        })
 </script>
 @endsection

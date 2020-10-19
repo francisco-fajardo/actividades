@@ -27,11 +27,11 @@
 
         <div class="input-field col s8 offset-s2">
             <i class="material-icons prefix">create</i>
-            <input id="career" name="career" type="text" class="validate" required />
+            <input id="career" name="career" type="text" class="validate" required value="{{ old('career') }}" />
             <label for="career">Mención</label>
-            @error('career')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
+            @if ($errors->has('career'))
+            <span class="helper-text" data-error="{{ $errors->first('career') }}"></span>
+            @endif
         </div>
 
         <div class="input-field col s8 offset-s2">

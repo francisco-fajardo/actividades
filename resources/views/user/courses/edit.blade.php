@@ -31,9 +31,9 @@ $sections = ['U', 'A', 'B'];
             <i class="material-icons prefix">create</i>
             <input id="career" name="career" type="text" class="validate" required value="{{ $course->career }}" />
             <label for="career">Mención</label>
-            @error('career')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
+            @if ($errors->has('career'))
+            <span class="helper-text" data-error="{{ $errors->first('career') }}"></span>
+            @endif
         </div>
 
         <div class="input-field col s8 offset-s2">
@@ -47,11 +47,11 @@ $sections = ['U', 'A', 'B'];
             <label>Sección</label>
         </div>
 
-        <div class="col s12">
+        <div class="col s12 m6">
             <button class="waves-effect waves-light btn-large" type="submit" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
         </div>
 
-        <div class="col s12">
+        <div class="col s12 m6">
             <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>

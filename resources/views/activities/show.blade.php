@@ -23,8 +23,7 @@
             <td>{{ $activity->user->full_name }}</td>
             <td>
                 <a class="waves-effect waves-light btn tooltipped" href="{{ route('activity.show', $activity) }}" data-position="bottom" data-tooltip="Ver"><i class="material-icons">visibility</i></a>
-                <a class="waves-effect waves-light btn tooltipped" href="#!" data-position="bottom" data-tooltip="Descargar" disabled aria-disabled="true"><i class="material-icons">get_app</i></a>
-                <a class="waves-effect waves-light btn tooltipped" href="#!" data-position="bottom" data-tooltip="Enviar por Correo" disabled aria-disabled="true"><i class="material-icons">email</i></a>
+                <a class="waves-effect waves-light btn tooltipped" href="{{ route('activity.download', $activity) }}" data-position="bottom" data-tooltip="Descargar"><i class="material-icons">get_app</i></a>
             </td>
         </tr>
         @endforeach

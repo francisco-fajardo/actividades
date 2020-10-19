@@ -37,8 +37,9 @@ class UsersController extends Controller
         $usersCount = User::count();
         $coursesCount = Course::count();
         $activitiesCount = Activity::where('user_id', Auth::user()->id)->count();
+        $departmentsCount = Department::count();
 
-        return view('user.dashboard')->withUsersCount($usersCount)->withCoursesCount($coursesCount)->withActivitiesCount($activitiesCount);
+        return view('user.dashboard')->withUsersCount($usersCount)->withCoursesCount($coursesCount)->withActivitiesCount($activitiesCount)->withDepartmentsCount($departmentsCount);
     }
 
     /**

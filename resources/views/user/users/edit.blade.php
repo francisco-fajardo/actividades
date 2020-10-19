@@ -15,27 +15,27 @@
             <i class="material-icons prefix">person</i>
             <input id="first_name" name="first_name" type="text" class="validate" value="{{ $user->first_name }}" required />
             <label for="first_name">Nombre</label>
-            @error('first_name')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
+            @if ($errors->has('first_name'))
+            <span class="helper-text" data-error="{{ $errors->first('first_name') }}"></span>
+            @endif
         </div>
 
         <div class="input-field col s8 offset-s2">
             <i class="material-icons prefix">person</i>
             <input id="last_name" name="last_name" type="text" class="validate" value="{{ $user->last_name }}" required />
             <label for="last_name">Apellido</label>
-            @error('last_name')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
+            @if ($errors->has('last_name'))
+            <span class="helper-text" data-error="{{ $errors->first('last_name') }}"></span>
+            @endif
         </div>
 
         <div class="input-field col s8 offset-s2">
             <i class="material-icons prefix">email</i>
             <input id="email" type="email" name="email" class="validate" value="{{ $user->email }}" required autocomplete="email" />
             <label for="email">Correo</label>
-            @error('email')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
+            @if ($errors->has('email'))
+            <span class="helper-text" data-error="{{ $errors->first('email') }}"></span>
+            @endif
         </div>
 
         <div class="input-field col s8 offset-s2">
@@ -46,18 +46,15 @@
                 @endforeach
             </select>
             <label>Departamento</label>
-            @error('department_id')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
         </div>
 
         <div class="input-field col s8 offset-s2">
             <i class="material-icons prefix">person</i>
             <input id="username" type="text" name="username" class="validate" value="{{ $user->username }}" required autocomplete="username" />
             <label for="username">Usuario</label>
-            @error('username')
-            <span class="helper-text" data-error="{{ $message }}"></span>
-            @enderror
+            @if ($errors->has('username'))
+            <span class="helper-text" data-error="{{ $errors->first('username') }}"></span>
+            @endif
         </div>
 
         <div class="col s12 center">

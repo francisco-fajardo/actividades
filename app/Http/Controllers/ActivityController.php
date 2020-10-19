@@ -8,7 +8,9 @@ use App\Course;
 use App\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Dompdf\Dompdf;
 
 class ActivityController extends Controller
 {
@@ -46,11 +48,33 @@ class ActivityController extends Controller
     }
 
     /**
+     * Download an Activity (PDF File).
+     *
+     * @param int $id The id of the Activity.
+     */
+    public function download($id)
+    {
+        // Retrieve data
+        $activity = Activity::findOrFail($id);
+        $user = User::findOrFail($activity->user_id);
+        $course = Course::findOrFail($activity->course_id);
+
+        // Make View (HTML)
+        $view = View::make('activity.download', compact('activity', 'user', 'course'))->render();
+
+        // Make PDF from the HTML
+        $pdf = new Dompdf();
+        $pdf->loadHtml($view);
+        $pdf->render();
+        $pdf->stream();
+    }
+
+    /**
      * Show Activity Form to Store an Activity.
      */
     public function new()
     {
-        $courses = Course::all();
+        $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
 
         return view('user.activity.new')->withCourses($courses);
     }
