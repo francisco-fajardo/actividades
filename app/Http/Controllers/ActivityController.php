@@ -35,13 +35,9 @@ class ActivityController extends Controller
      */
     public function show($id)
     {
-        // Activity
+        // Retrieve data
         $activity = Activity::findOrFail($id);
-
-        // User
         $user = User::findOrFail($activity->user_id);
-
-        // Course
         $course = Course::findOrFail($activity->course_id);
 
         return view('activity.show')->withActivity($activity)->withUser($user)->withCourse($course);
@@ -103,7 +99,7 @@ class ActivityController extends Controller
     public function edit($id)
     {
         $activity = Activity::findOrFail($id);
-        if ($activity->user_id !== Auth::user()->id && Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
+        if ($activity->user_id !== Auth::user()->id && !Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
 
         $departments = Department::all();
         $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
@@ -123,7 +119,7 @@ class ActivityController extends Controller
 
         $input = $request->all();
         $activity = Activity::findOrFail($id);
-        if ($activity->user_id !== Auth::user()->id && Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
+        if ($activity->user_id !== Auth::user()->id && !Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
         $input['user_id'] = Auth::user()->id;
         $activity->update($input);
 
@@ -138,7 +134,7 @@ class ActivityController extends Controller
     public function destroy($id)
     {
         $activity = Activity::findOrFail($id);
-        if ($activity->user_id !== Auth::user()->id && Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes eliminar');
+        if ($activity->user_id !== Auth::user()->id && !Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes eliminar');
         $activity->delete();
 
         return redirect(route('user.activities.index'));

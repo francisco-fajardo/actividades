@@ -50,15 +50,66 @@
 @endsection
 
 @section('endbody')
-<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/translations/es.js"></script>
+<script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
 <script>
     ClassicEditor
         .create(document.getElementById('activity'), {
-            'language': 'es'
+            'toolbar': {
+                'items': [
+                    'heading',
+                    '|',
+                    'fontFamily',
+                    'fontSize',
+                    'bold',
+                    'italic',
+                    'alignment',
+                    'removeFormat',
+                    '|',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'indent',
+                    'outdent',
+                    '|',
+                    'insertTable',
+                    'fontBackgroundColor',
+                    'fontColor',
+                    'undo',
+                    'redo',
+                    'imageInsert',
+                    'link',
+                    'mediaEmbed',
+                    'codeBlock',
+                    'blockQuote',
+                    'horizontalLine'
+                ]
+            },
+            'language': 'es',
+            'image': {
+                'toolbar': [
+                    'imageTextAlternative',
+                    'imageStyle:full',
+                    'imageStyle:side'
+                ]
+            },
+            'table': {
+                'contentToolbar': [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+            'link': {
+                'addTargetToExternalLinks': true,
+                'defaultProtocol': 'http://'
+            },
+            'licenseKey': ''
+        })
+        .then(function (editor) {
+            window.editor = editor;
         })
         .catch(function (err) {
             console.error(err);
-	});
+        });
 </script>
 @endsection
