@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
 
     <title>{{ $course->full_name }} - {{ $activity->subject }}</title>
 </head>
