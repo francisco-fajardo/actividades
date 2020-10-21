@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "{{ $course->full_name }} - {{ $activity->subject }}")
+@section('title', 'Actividad')
 
 @section('content')
 <div class="center">
