@@ -103,6 +103,9 @@
                 'addTargetToExternalLinks': true,
                 'defaultProtocol': 'http://'
             },
+            'mediaEmbed': {
+                'previewsInData': true
+            },
             'licenseKey': ''
         })
         .then(function (editor) {
