@@ -58,11 +58,14 @@ class ActivityController extends Controller
         // Make View (HTML)
         $view = View::make('activity.download', compact('activity', 'user', 'course'))->render();
 
+	// Make the nane of the course
+	$courseFullName = $couse->year . ' ' . ucfirst($course->career) . ' ' . strtoupper($course->section);
+
         // Make PDF from the HTML
         $pdf = new Dompdf();
         $pdf->loadHtml($view);
         $pdf->render();
-        $pdf->stream($course->full_name . ' - ' . $activity->subject . ' (' . $user->full_name . ')');
+        $pdf->stream($courseFullName . ' - ' . $activity->subject . ' (' . $user->full_name . ')');
     }
 
     /**
