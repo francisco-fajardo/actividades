@@ -65,7 +65,7 @@ class ActivityController extends Controller
         $pdf = new Dompdf();
         $pdf->loadHtml($view);
         $pdf->render();
-        $pdf->stream($courseFullName . ' - ' . $activity->subject . ' (' . $user->full_name . ')');
+        $pdf->stream($courseFullName . ' - ' . $activity->subject . ' (' . $user->full_name . ')', ['Attachment' => 1]);
     }
 
     /**
