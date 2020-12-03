@@ -46,7 +46,7 @@ jobs:
               run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --no-dev --optimize-autoloader --prefer-dist
 
             - name: Generate Laravel Key
-              run: php artisan key:generate
+              run: php artisan key:generate --no-ansi
 
             - name: Build Assets
               run: npm run production
