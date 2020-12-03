@@ -1,0 +1,60 @@
+name: Continuous Deployment
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "14"
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "7.4"
+                  extensions: mbstring
+
+            - name: Cache Node.js dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.OS }}-node-
+
+            - name: Cache PHP dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer
+                  key: ${{ runner.OS }}-php-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: |
+                      ${{ runner.OS }}-php-
+
+            - name: Install Node.js dependencies
+              run: npm ci
+
+            - name: Install PHP dependencies
+              run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --no-dev --optimize-autoloader --prefer-dist
+
+            - name: Generate Laravel Key
+              run: php artisan key:generate
+
+            - name: Build Assets
+              run: npm run production
+
+            - name: Deploy to the Server
+              uses: SamKirkland/FTP-Deploy-Action@4.0.0
+              with:
+                  server: ${{ secrets.FTP_GIT_SERVER }}
+                  username: ${{ secrets.FTP_GIT_USERNAME }}
+                  password: ${{ secrets.FTP_GIT_PASSWORD }}
+                  server-dir: ./actividades/
