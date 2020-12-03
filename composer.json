@@ -7,7 +7,7 @@
         "fajardo",
         "actividades"
     ],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "require": {
         "php": "^7.2.5",
         "dompdf/dompdf": "^0.8.6",
