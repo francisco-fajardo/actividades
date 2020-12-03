@@ -7,3 +7,6 @@
 .env.backup
 .phpunit.result.cache
 npm-debug.log
+
+# PHP-CS-Fixer cache file
+.php_cs.cache
