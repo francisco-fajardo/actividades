@@ -15,8 +15,8 @@ class DepartmentsController extends Controller
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'nullable'
+            "name" => "required",
+            "description" => "nullable",
         ];
     }
 
@@ -25,7 +25,9 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        return view('user.departments.index')->withDepartments(Department::all());
+        return view("user.departments.index")->withDepartments(
+            Department::all()
+        );
     }
 
     /**
@@ -33,7 +35,7 @@ class DepartmentsController extends Controller
      */
     public function new()
     {
-        return view('user.departments.new');
+        return view("user.departments.new");
     }
 
     /**
@@ -47,7 +49,7 @@ class DepartmentsController extends Controller
 
         Department::create($request->all());
 
-        return redirect(route('user.departments.index'));
+        return redirect(route("user.departments.index"));
     }
 
     /**
@@ -59,7 +61,7 @@ class DepartmentsController extends Controller
     {
         $department = Department::findOrFail($id);
 
-        return view('user.departments.edit')->withDepartment($department);
+        return view("user.departments.edit")->withDepartment($department);
     }
 
     /**
@@ -75,7 +77,7 @@ class DepartmentsController extends Controller
         $department = Department::findOrFail($id);
         $department->update($request->all());
 
-        return redirect(route('user.departments.index'));
+        return redirect(route("user.departments.index"));
     }
 
     /**
@@ -88,6 +90,6 @@ class DepartmentsController extends Controller
         $department = Department::findOrFail($id);
         $department->delete();
 
-        return redirect(route('user.departments.index'));
+        return redirect(route("user.departments.index"));
     }
 }

@@ -22,9 +22,9 @@ class ActivityController extends Controller
     public function rules()
     {
         return [
-            'subject' => 'required',
-            'activity' => 'required',
-            'course_id' => 'required|exists:courses,id'
+            "subject" => "required",
+            "activity" => "required",
+            "course_id" => "required|exists:courses,id",
         ];
     }
 
@@ -40,7 +40,10 @@ class ActivityController extends Controller
         $user = User::findOrFail($activity->user_id);
         $course = Course::findOrFail($activity->course_id);
 
-        return view('activity.show')->withActivity($activity)->withUser($user)->withCourse($course);
+        return view("activity.show")
+            ->withActivity($activity)
+            ->withUser($user)
+            ->withCourse($course);
     }
 
     /**
@@ -56,18 +59,34 @@ class ActivityController extends Controller
         $course = Course::findOrFail($activity->course_id);
 
         // Make View (HTML)
-        $view = View::make('activity.download', compact('activity', 'user', 'course'))->render();
+        $view = View::make(
+            "activity.download",
+            compact("activity", "user", "course")
+        )->render();
 
-	// Make the nane of the course
-	$courseFullName = $course->year . ' ' . ucfirst($course->career) . ' ' . strtoupper($course->section);
+        // Make the nane of the course
+        $courseFullName =
+            $course->year .
+            " " .
+            ucfirst($course->career) .
+            " " .
+            strtoupper($course->section);
 
         // Make PDF from the HTML
         $pdf = new Dompdf();
         $pdf->loadHtml($view);
         $pdf->render();
 
-	// Return the PDF for Download as Attachment
-        return $pdf->stream($courseFullName . ' - ' . $activity->subject . ' (' . $user->full_name . ')', ['Attachment' => 1]);
+        // Return the PDF for Download as Attachment
+        return $pdf->stream(
+            $courseFullName .
+                " - " .
+                $activity->subject .
+                " (" .
+                $user->full_name .
+                ")",
+            ["Attachment" => 1]
+        );
     }
 
     /**
@@ -75,9 +94,11 @@ class ActivityController extends Controller
      */
     public function new()
     {
-        $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
+        $courses = Course::orderBy("year", "asc")
+            ->orderBy("career", "asc")
+            ->get();
 
-        return view('user.activity.new')->withCourses($courses);
+        return view("user.activity.new")->withCourses($courses);
     }
 
     /**
@@ -90,10 +111,10 @@ class ActivityController extends Controller
         $request->validate($this->rules());
 
         $input = $request->all();
-        $input['user_id'] = Auth::user()->id;
+        $input["user_id"] = Auth::user()->id;
         Activity::create($input);
 
-        return redirect(route('user.activities.index'));
+        return redirect(route("user.activities.index"));
     }
 
     /**
@@ -104,12 +125,24 @@ class ActivityController extends Controller
     public function edit($id)
     {
         $activity = Activity::findOrFail($id);
-        if ($activity->user_id !== Auth::user()->id && !Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
+        if (
+            $activity->user_id !== Auth::user()->id &&
+            !Auth::user()->isAdmin()
+        ) {
+            throw new UnauthorizedHttpException(
+                "Esta actividad no la puedes editar"
+            );
+        }
 
         $departments = Department::all();
-        $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
+        $courses = Course::orderBy("year", "asc")
+            ->orderBy("career", "asc")
+            ->get();
 
-        return view('user.activity.edit')->withActivity($activity)->withDepartments($departments)->withCourses($courses);
+        return view("user.activity.edit")
+            ->withActivity($activity)
+            ->withDepartments($departments)
+            ->withCourses($courses);
     }
 
     /**
@@ -124,11 +157,18 @@ class ActivityController extends Controller
 
         $input = $request->all();
         $activity = Activity::findOrFail($id);
-        if ($activity->user_id !== Auth::user()->id && !Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes editar');
-        $input['user_id'] = Auth::user()->id;
+        if (
+            $activity->user_id !== Auth::user()->id &&
+            !Auth::user()->isAdmin()
+        ) {
+            throw new UnauthorizedHttpException(
+                "Esta actividad no la puedes editar"
+            );
+        }
+        $input["user_id"] = Auth::user()->id;
         $activity->update($input);
 
-        return redirect(route('user.activities.index'));
+        return redirect(route("user.activities.index"));
     }
 
     /**
@@ -139,9 +179,16 @@ class ActivityController extends Controller
     public function destroy($id)
     {
         $activity = Activity::findOrFail($id);
-        if ($activity->user_id !== Auth::user()->id && !Auth::user()->isAdmin()) throw new UnauthorizedHttpException('Esta actividad no la puedes eliminar');
+        if (
+            $activity->user_id !== Auth::user()->id &&
+            !Auth::user()->isAdmin()
+        ) {
+            throw new UnauthorizedHttpException(
+                "Esta actividad no la puedes eliminar"
+            );
+        }
         $activity->delete();
 
-        return redirect(route('user.activities.index'));
+        return redirect(route("user.activities.index"));
     }
 }
