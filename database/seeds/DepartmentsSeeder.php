@@ -11,42 +11,42 @@ class DepartmentsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('departments')->insert([
+        DB::table("departments")->insert([
             [
-                'name' => 'Comercio',
-                'description' => 'Departamento de Comercio',
+                "name" => "Comercio",
+                "description" => "Departamento de Comercio",
             ],
             [
-                'name' => 'Informática',
-                'description' => 'Departamento de Informática',
+                "name" => "Informática",
+                "description" => "Departamento de Informática",
             ],
             [
-                'name' => 'Sociales',
-                'description' => 'Departamento de Sociales',
+                "name" => "Sociales",
+                "description" => "Departamento de Sociales",
             ],
             [
-                'name' => 'Turismo',
-                'description' => 'Departamento de Turismo',
+                "name" => "Turismo",
+                "description" => "Departamento de Turismo",
             ],
             [
-                'name' => 'Matemáticas',
-                'description' => 'Departamento de Matemáticas',
+                "name" => "Matemáticas",
+                "description" => "Departamento de Matemáticas",
             ],
             [
-                'name' => 'Construcción Civil',
-                'description' => 'Departamento de Construcción Civil',
+                "name" => "Construcción Civil",
+                "description" => "Departamento de Construcción Civil",
             ],
             [
-                'name' => 'Idiomas',
-                'description' => 'Departamento de Idiomas',
+                "name" => "Idiomas",
+                "description" => "Departamento de Idiomas",
             ],
             [
-                'name' => 'Educación Física',
-                'description' => 'Departamento de Educación Física',
+                "name" => "Educación Física",
+                "description" => "Departamento de Educación Física",
             ],
             [
-                'name' => 'Biología',
-                'description' => 'Departamento de Biología',
+                "name" => "Biología",
+                "description" => "Departamento de Biología",
             ],
         ]);
     }

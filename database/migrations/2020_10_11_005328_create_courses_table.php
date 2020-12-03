@@ -13,12 +13,12 @@ class CreateCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create("courses", function (Blueprint $table) {
             $table->id();
 
-            $table->string('year');
-            $table->string('career');
-            $table->string('section')->default('U');
+            $table->string("year");
+            $table->string("career");
+            $table->string("section")->default("U");
         });
     }
 
@@ -29,6 +29,6 @@ class CreateCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists("courses");
     }
 }

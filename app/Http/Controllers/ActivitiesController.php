@@ -20,14 +20,16 @@ class ActivitiesController extends Controller
         $course = Course::findOrFail($id);
 
         // Activities
-        $activities = Activity::where('course_id', $id)->get();
+        $activities = Activity::where("course_id", $id)->get();
 
         // Users
         foreach ($activities as $activity) {
             $activity->user = User::findOrFail($activity->user_id);
         }
 
-        return view('activities.show')->withCourse($course)->withActivities($activities);
+        return view("activities.show")
+            ->withCourse($course)
+            ->withActivities($activities);
     }
 
     /**
@@ -35,12 +37,12 @@ class ActivitiesController extends Controller
      */
     public function userIndex()
     {
-        $activities = Activity::where('user_id', Auth::user()->id)->get();
+        $activities = Activity::where("user_id", Auth::user()->id)->get();
 
         foreach ($activities as $activity) {
             $activity->course = Course::findOrFail($activity->course_id);
         }
 
-        return view('user.activities.index')->withActivities($activities);
+        return view("user.activities.index")->withActivities($activities);
     }
 }

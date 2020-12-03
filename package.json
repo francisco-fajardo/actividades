@@ -11,8 +11,9 @@
         "format": "prettier --write ."
     },
     "devDependencies": {
+        "@prettier/plugin-php": "^0.16.0",
         "cross-env": "^7.0",
-        "laravel-mix": "^5.0.1",
+        "laravel-mix": "^5.0.9",
         "prettier": "^2.2.1",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.29.0",

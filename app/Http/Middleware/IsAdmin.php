@@ -18,7 +18,10 @@ class IsAdmin
     public function handle($request, Closure $next)
     {
         if (!Auth::user()->isAdmin()) {
-            throw new UnauthorizedHttpException('No estas autorizado para esta página', 401);
+            throw new UnauthorizedHttpException(
+                "No estas autorizado para esta página",
+                401
+            );
         }
 
         return $next($request);
