@@ -19,12 +19,12 @@ class UsersController extends Controller
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'department_id' => 'required|exists:departments,id',
-            'username' => 'required|unique:users,username',
-            'password' => 'required|confirmed',
+            "first_name" => "required",
+            "last_name" => "required",
+            "email" => "required|email|unique:users,email",
+            "department_id" => "required|exists:departments,id",
+            "username" => "required|unique:users,username",
+            "password" => "required|confirmed",
             // 'admin' => 'nullable|boolean'
         ];
     }
@@ -36,10 +36,17 @@ class UsersController extends Controller
     {
         $usersCount = User::count();
         $coursesCount = Course::count();
-        $activitiesCount = Activity::where('user_id', Auth::user()->id)->count();
+        $activitiesCount = Activity::where(
+            "user_id",
+            Auth::user()->id
+        )->count();
         $departmentsCount = Department::count();
 
-        return view('user.dashboard')->withUsersCount($usersCount)->withCoursesCount($coursesCount)->withActivitiesCount($activitiesCount)->withDepartmentsCount($departmentsCount);
+        return view("user.dashboard")
+            ->withUsersCount($usersCount)
+            ->withCoursesCount($coursesCount)
+            ->withActivitiesCount($activitiesCount)
+            ->withDepartmentsCount($departmentsCount);
     }
 
     /**
@@ -54,7 +61,7 @@ class UsersController extends Controller
             $user->department = Department::findOrFail($user->department_id);
         }
 
-        return view('user.users.index')->withUsers($users);
+        return view("user.users.index")->withUsers($users);
     }
 
     /**
@@ -70,7 +77,9 @@ class UsersController extends Controller
         // All Departments
         $departments = Department::all();
 
-        return view('user.users.edit')->withUser($user)->withDepartments($departments);
+        return view("user.users.edit")
+            ->withUser($user)
+            ->withDepartments($departments);
     }
 
     /**
@@ -82,19 +91,19 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'department_id' => 'required|exists:departments,id',
-            'username' => 'required'
+            "first_name" => "required",
+            "last_name" => "required",
+            "email" => "required|email",
+            "department_id" => "required|exists:departments,id",
+            "username" => "required",
         ]);
 
         $user = User::findOrFail($id);
         $input = $request->all();
-        $input['admin'] = $request->input('admin') === 'on';
+        $input["admin"] = $request->input("admin") === "on";
         $user->update($input);
 
-        return redirect(route('user.users.index'));
+        return redirect(route("user.users.index"));
     }
 
     /**
@@ -104,7 +113,7 @@ class UsersController extends Controller
     {
         $departments = Department::all();
 
-        return view('user.users.new')->withDepartments($departments);
+        return view("user.users.new")->withDepartments($departments);
     }
 
     /**
@@ -117,10 +126,10 @@ class UsersController extends Controller
         $request->validate($this->rules());
 
         $input = $request->all();
-        $input['admin'] = $request->input('admin') === 'on';
+        $input["admin"] = $request->input("admin") === "on";
         User::create($input);
 
-        return redirect(route('user.users.index'));
+        return redirect(route("user.users.index"));
     }
 
     /**
@@ -133,6 +142,6 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect(route('user.users.index'));
+        return redirect(route("user.users.index"));
     }
 }

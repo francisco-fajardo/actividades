@@ -16,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'department_id', 'username', 'password', 'admin'
+        "first_name",
+        "last_name",
+        "email",
+        "department_id",
+        "username",
+        "password",
+        "admin",
     ];
 
     /**
@@ -24,9 +30,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'username', 'password', 'remember_token',
-    ];
+    protected $hidden = ["username", "password", "remember_token"];
 
     /**
      * Get the user's full name.
@@ -37,7 +41,7 @@ class User extends Authenticatable
      */
     public function getFullNameAttribute()
     {
-        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+        return ucfirst($this->first_name) . " " . ucfirst($this->last_name);
     }
 
     /**

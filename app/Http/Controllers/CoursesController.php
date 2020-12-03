@@ -16,9 +16,9 @@ class CoursesController extends Controller
     public function rules()
     {
         return [
-            'year' => 'required',
-            'career' => 'required',
-            'section' => 'nullable'
+            "year" => "required",
+            "career" => "required",
+            "section" => "nullable",
         ];
     }
 
@@ -27,14 +27,19 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses = Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get();
+        $courses = Course::orderBy("year", "asc")
+            ->orderBy("career", "asc")
+            ->get();
 
         // Activities Count
         foreach ($courses as $course) {
-            $course->activity_count = Activity::where('course_id', $course->id)->count();
+            $course->activity_count = Activity::where(
+                "course_id",
+                $course->id
+            )->count();
         }
 
-        return view('courses.index')->withCourses($courses);
+        return view("courses.index")->withCourses($courses);
     }
 
     /**
@@ -42,7 +47,11 @@ class CoursesController extends Controller
      */
     public function userIndex()
     {
-        return view('user.courses.index')->withCourses(Course::orderBy('year', 'asc')->orderBy('career', 'asc')->get());
+        return view("user.courses.index")->withCourses(
+            Course::orderBy("year", "asc")
+                ->orderBy("career", "asc")
+                ->get()
+        );
     }
 
     /**
@@ -50,7 +59,7 @@ class CoursesController extends Controller
      */
     public function new()
     {
-        return view('user.courses.new');
+        return view("user.courses.new");
     }
 
     /**
@@ -64,7 +73,7 @@ class CoursesController extends Controller
 
         Course::create($request->all());
 
-        return redirect(route('user.courses.index'));
+        return redirect(route("user.courses.index"));
     }
 
     /**
@@ -76,7 +85,7 @@ class CoursesController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        return view('user.courses.edit')->withCourse($course);
+        return view("user.courses.edit")->withCourse($course);
     }
 
     /**
@@ -92,7 +101,7 @@ class CoursesController extends Controller
         $course = Course::findOrFail($id);
         $course->update($request->all());
 
-        return redirect(route('user.courses.index'));
+        return redirect(route("user.courses.index"));
     }
 
     /**
@@ -105,6 +114,6 @@ class CoursesController extends Controller
         $course = Course::findOrFail($id);
         $course->delete();
 
-        return redirect(route('user.courses.index'));
+        return redirect(route("user.courses.index"));
     }
 }

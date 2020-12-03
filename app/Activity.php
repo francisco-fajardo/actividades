@@ -11,7 +11,5 @@ class Activity extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'subject', 'activity', 'user_id', 'course_id',
-    ];
+    protected $fillable = ["subject", "activity", "user_id", "course_id"];
 }

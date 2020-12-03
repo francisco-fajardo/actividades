@@ -11,9 +11,7 @@ class Course extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'year', 'career', 'section',
-    ];
+    protected $fillable = ["year", "career", "section"];
 
     /**
      * Disable timestamps.
@@ -29,6 +27,11 @@ class Course extends Model
      */
     public function getFullNameAttribute()
     {
-        return $this->year . ' ' . ucfirst($this->career) . ' "' . strtoupper($this->section) . '"';
+        return $this->year .
+            " " .
+            ucfirst($this->career) .
+            ' "' .
+            strtoupper($this->section) .
+            '"';
     }
 }
