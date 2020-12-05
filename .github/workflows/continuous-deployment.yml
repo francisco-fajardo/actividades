@@ -38,3 +38,9 @@ jobs:
                   username: ${{ secrets.FTP_GIT_USERNAME }}
                   password: ${{ secrets.FTP_GIT_PASSWORD }}
                   server-dir: ./actividades/
+
+            - name: Purge Cache of Cloudflare
+              uses: jakejarvis/cloudflare-purge-action@master
+              env:
+                  CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+                  CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
