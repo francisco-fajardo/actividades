@@ -1,1 +1,15 @@
-body{display:flex;min-height:100vh;flex-direction:column}main{flex:1 0 auto}[data-href]{cursor:pointer}.btn,.btn-large{border-radius:10px}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+[data-href] {
+    cursor: pointer;
+}
+.btn,
+.btn-large {
+    border-radius: 10px;
+}
