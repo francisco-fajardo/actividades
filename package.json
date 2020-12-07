@@ -19,5 +19,17 @@
         "sass": "^1.29.0",
         "sass-loader": "^10.0.3",
         "vue-template-compiler": "^2.6.12"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }
