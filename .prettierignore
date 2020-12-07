@@ -1,2 +1,4 @@
 vendor
 public/js/vendor
+public/js/dist
+public/css/dist
