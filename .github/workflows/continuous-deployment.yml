@@ -34,9 +34,9 @@ jobs:
             - name: Deploy to the Server
               uses: SamKirkland/FTP-Deploy-Action@4.0.0
               with:
-                  server: ${{ secrets.FTP_GIT_SERVER }}
-                  username: ${{ secrets.FTP_GIT_USERNAME }}
-                  password: ${{ secrets.FTP_GIT_PASSWORD }}
+                  server: ${{ secrets.GIT_FTP_SERVER }}
+                  username: ${{ secrets.GIT_FTP_USERNAME }}
+                  password: ${{ secrets.GIT_FTP_PASSWORD }}
                   server-dir: ./actividades/
 
             - name: Purge Cache of Cloudflare
