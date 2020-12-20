@@ -25,26 +25,26 @@
     <meta name="description" content="Creamos estudiantes con miras al éxito de un país productivo" />
     <meta name="keywords" content="francisco fajardo, fajardo, escuela tecnica, caricuao, liceo" />
 
-    <link rel="canonical" href="https://franciscofajardo.com/actividades/" />
+    <link rel="canonical" href="{{ url()->current() }}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Open Graph / Facebook SEO Tags -->
     <meta property="og:image" content="https://franciscofajardo.com/img/logo.png" />
-    <meta property="og:title" content="@yield('title') - {{ config('app.property', 'Actividades Fajardo') }}" />
+    <meta property="og:title" content="@yield('title') - {{ config('app.name', 'Actividades Fajardo') }}" />
     <meta property="og:description" content="Creamos estudiantes con miras al éxito de un país productivo" />
     <meta property="og:locale" content="es_VE" />
     <meta property="og:site_name" content="E.T. &quot;Francisco Fajardo&quot;" />
-    <meta property="og:url" content="https://franciscofajardo.com/actividades/" />
+    <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:type" content="school" />
 
     <!-- Twitter SEO Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://franciscofajardo.com/img/logo.png" />
-    <meta name="twitter:title" content="@yield('title') - {{ config('app.property', 'Actividades Fajardo') }}" />
+    <meta name="twitter:title" content="@yield('title') - {{ config('app.name', 'Actividades Fajardo') }}" />
     <meta name="twitter:description" content="Creamos estudiantes con miras al éxito de un país productivo" />
-    <meta name="twitter:url" content="https://franciscofajardo.com/actividades/" />
+    <meta name="twitter:url" content="{{ url()->current() }}" />
 
     <!-- Favicon's -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('icons/apple-icon-57x57.png') }}" />
@@ -60,7 +60,7 @@
     <link rel="icon" sizes="32x32" href="{{ asset('icons/favicon-32x32.png') }}" />
     <link rel="icon" sizes="96x96" href="{{ asset('icons/favicon-96x96.png') }}" />
     <link rel="icon" sizes="16x16" href="{{ asset('icons/favicon-16x16.png') }}" />
-    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ asset('manifest.webmanifest')  }}" />
