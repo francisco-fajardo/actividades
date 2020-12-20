@@ -6,26 +6,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <!-- Robots tags -->
+    <meta name="robots" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="googlebot-news" content="noindex" />
+    <meta name="bingbot" content="noindex" />
 
+    <!-- Browserconfig -->
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="{{ asset('icons/ms-icon-144x144.png') }}" />
 
     <meta name="theme-color" content="#ffffff" />
 
-    <title>{{ config('app.name', 'Actividades Fajardo') }} - @yield('title')</title>
+    <title>@yield('title') - {{ config('app.name', 'Actividades Fajardo') }}</title>
 
+    <!-- SEO Tags -->
     <meta name="author" content="E.T. &quot;Francisco Fajardo&quot;" />
+    <meta name="description" content="Creamos estudiantes con miras al éxito de un país productivo" />
+    <meta name="keywords" content="francisco fajardo, fajardo, escuela tecnica, caricuao, liceo" />
+
+    <link rel="canonical" href="https://franciscofajardo.com/actividades/" />
+
+    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <meta name="og:title" content="{{ config('app.name', 'Actividades Fajardo') }} - @yield('title')" />
-    <meta name="og:type" content="website" />
-    <meta name="og:site_name" content="E.T. &quot;Francisco Fajardo&quot;" />
-    <meta name="og:locale" content="es_VE" />
+    <!-- Open Graph / Facebook SEO Tags -->
+    <meta property="og:image" content="https://franciscofajardo.com/img/logo.png" />
+    <meta property="og:title" content="@yield('title') - {{ config('app.property', 'Actividades Fajardo') }}" />
+    <meta property="og:description" content="Creamos estudiantes con miras al éxito de un país productivo" />
+    <meta property="og:locale" content="es_VE" />
+    <meta property="og:site_name" content="E.T. &quot;Francisco Fajardo&quot;" />
+    <meta property="og:url" content="https://franciscofajardo.com/actividades/" />
+    <meta property="og:type" content="school" />
 
+    <!-- Twitter SEO Tags -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://franciscofajardo.com/img/logo.png" />
+    <meta name="twitter:title" content="@yield('title') - {{ config('app.property', 'Actividades Fajardo') }}" />
+    <meta name="twitter:description" content="Creamos estudiantes con miras al éxito de un país productivo" />
+    <meta name="twitter:url" content="https://franciscofajardo.com/actividades/" />
 
+    <!-- Favicon's -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('icons/apple-icon-57x57.png') }}" />
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('icons/apple-icon-60x60.png') }}" />
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('icons/apple-icon-72x72.png') }}" />
@@ -35,18 +56,17 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('icons/apple-icon-144x144.png') }}" />
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('icons/apple-icon-152x152.png') }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('icons/apple-icon-180x180.png') }}" />
-
     <link rel="icon" sizes="192x192" href="{{ asset('icons/android-icon-192x192.png') }}" />
     <link rel="icon" sizes="32x32" href="{{ asset('icons/favicon-32x32.png') }}" />
     <link rel="icon" sizes="96x96" href="{{ asset('icons/favicon-96x96.png') }}" />
     <link rel="icon" sizes="16x16" href="{{ asset('icons/favicon-16x16.png') }}" />
-
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" />
 
+    <!-- Web App Manifest -->
     <link rel="manifest" href="{{ asset('manifest.webmanifest')  }}" />
 
+    <!-- Styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/dist/app.css') }}" />
     @yield('endhead')
