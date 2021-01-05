@@ -20,7 +20,7 @@
 
     <div class="footer-copyright center">
         <div class="container">
-            &copy; 2020 E.T. "Francisco Fajardo"
+            &copy; 2020 - 2021 E.T. "Francisco Fajardo"
         </div>
     </div>
 </footer>
