@@ -63,7 +63,7 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="{{ asset('manifest.webmanifest')  }}" />
+    <link rel="manifest" href="{{ asset('site.webmanifest')  }}" />
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
