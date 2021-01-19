@@ -40,7 +40,7 @@
             <div class="col s12 center">
                 <button class="waves-effect waves-light btn" type="submit"><i class="material-icons left">send</i> Entrar</button>
             </div>
-        </script>
+	</div>
     </div>
 </form>
 @endsection
