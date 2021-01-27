@@ -14,12 +14,6 @@ jobs:
               with:
                   node-version: "14"
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: "7.4"
-                  extensions: mbstring
-
             - name: Cache Node.js dependencies
               uses: actions/cache@v2
               with:
@@ -28,25 +22,11 @@ jobs:
                   restore-keys: |
                       ${{ runner.OS }}-node-
 
-            - name: Cache PHP dependencies
-              uses: actions/cache@v2
-              with:
-                  path: vendor
-                  key: ${{ runner.OS }}-php-${{ hashFiles('**/composer.lock') }}
-                  restore-keys: |
-                      ${{ runner.OS }}-php-
-
             - name: Install Node.js dependencies
               run: npm ci
 
-            - name: Install PHP dependencies
-              run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --dev --optimize-autoloader --prefer-dist
-
             - name: Run Prettier
               run: npm run format
-
-            - name: Run PHP-CS-Fixer
-              run: composer run format
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
