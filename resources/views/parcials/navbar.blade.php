@@ -2,7 +2,7 @@
 @section('navbar')
     <div class="nav-wrapper container">
         <a href="{{ url('/') }}" class="brand-logo">
-            <img src="{{ asset('img/covid.png') }}" />
+            <img src="{{ asset('img/covid.png') }}" alt="Contra el COVID-19" />
         </a>
 
         <a href="#" data-target="sidenav-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
