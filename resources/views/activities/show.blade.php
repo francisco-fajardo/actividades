@@ -11,9 +11,11 @@
 
 <table class="centered highlight">
     <thead>
-        <th>Asignatura</th>
-        <th>Profesor</th>
-        <th>Opciones</th>
+        <tr>
+            <th>Asignatura</th>
+            <th>Profesor</th>
+            <th>Opciones</th>
+        <tr>
     </thead>
 
     <tbody>
