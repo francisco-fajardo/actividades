@@ -30,13 +30,6 @@
             </div>
 
             <div class="col s12 center">
-                <label>
-                    <input type="checkbox" class="filled-in" {{ old('remember') ? 'checked' : '' }} />
-                    <span>Recuerdame</span>
-                </label>
-            </div>
-
-            <div class="col s12 center">
                 <button class="waves-effect waves-light btn" type="submit">
                     <i class="material-icons left">send</i>
                     Entrar
