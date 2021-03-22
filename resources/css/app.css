@@ -30,11 +30,6 @@ main .container:hover {
     cursor: pointer;
 }
 
-.btn,
-.btn-large {
-    border-radius: 10px;
-}
-
 img {
     max-width: 100%;
     height: auto;
