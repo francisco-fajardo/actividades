@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
-class IsAdmin
+class UserIsAdmin
 {
     /**
      * Handle an incoming request.
