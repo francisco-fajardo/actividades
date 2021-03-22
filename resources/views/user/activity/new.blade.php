@@ -42,70 +42,7 @@
 </form>
 @endsection
 
-@section('endbody')
+@section('scripts')
 <script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
-<script>
-    ClassicEditor
-        .create(document.getElementById('activity'), {
-            'toolbar': {
-                'items': [
-                    'heading',
-                    '|',
-                    'fontFamily',
-                    'fontSize',
-                    'bold',
-                    'italic',
-                    'alignment',
-                    'removeFormat',
-                    '|',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'indent',
-                    'outdent',
-                    '|',
-                    'insertTable',
-                    'fontBackgroundColor',
-                    'fontColor',
-                    'undo',
-                    'redo',
-                    'imageInsert',
-                    'link',
-                    'mediaEmbed',
-                    'codeBlock',
-                    'blockQuote',
-                    'horizontalLine'
-                ]
-            },
-            'language': 'es',
-            'image': {
-                'toolbar': [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                ]
-            },
-            'table': {
-                'contentToolbar': [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-            'link': {
-                'addTargetToExternalLinks': true,
-                'defaultProtocol': 'http://'
-            },
-            'mediaEmbed': {
-                'previewsInData': true
-            },
-            'licenseKey': ''
-        })
-        .then(function (editor) {
-            window.editor = editor;
-        })
-        .catch(function (err) {
-            console.error(err);
-        });
-</script>
+<script src="{{ asset('js/dist/ckeditor.js') }}"></script>
 @endsection

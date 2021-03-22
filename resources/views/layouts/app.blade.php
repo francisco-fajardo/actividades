@@ -27,9 +27,6 @@
 
     <link rel="canonical" href="{{ url()->current() }}" />
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-
     <!-- Open Graph / Facebook SEO Tags -->
     <meta property="og:image" content="https://franciscofajardo.com/img/logo.png" />
     <meta property="og:title" content="@yield('title') - {{ config('app.name', 'Actividades Fajardo') }}" />
@@ -70,7 +67,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/dist/app.css') }}" />
-    @yield('endhead')
+    @yield('styles')
 
     <!--[if lt IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -79,19 +76,19 @@
 </head>
 
 <body>
-@include('parcials.navbar')
+    @include('layouts.partials.navbar')
 
     <main>
         <div class="container">
-@yield('content')
+            @yield('content')
         </div>
     </main>
 
-@include('parcials.footer')
+    @include('layouts.partials.footer')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous"></script>
     <script src="{{ asset('js/dist/app.js') }}"></script>
-@yield('endbody')
+    @yield('endbody')
 </body>
 
 </html>
