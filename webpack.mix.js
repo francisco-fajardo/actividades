@@ -12,7 +12,7 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/app.js", "public/js/dist")
-    .sass("resources/sass/app.scss", "public/css/dist")
-    .options({
-        postCss: [require("autoprefixer")],
-    });
+    .js("resources/js/ckeditor.js", "public/js/dist")
+    .postCss("resources/css/app.css", "public/css/dist", [
+        require("autoprefixer")
+    ]);
