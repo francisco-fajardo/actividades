@@ -3,4 +3,5 @@ public/js/vendor
 public/js/dist
 public/css/dist
 storage/*
+routes/*
 webpack.mix.js
