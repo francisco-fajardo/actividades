@@ -14,7 +14,7 @@
         "@prettier/plugin-php": "^0.16.1",
         "laravel-mix": "^6.0.6",
         "postcss": "^8.1.14",
-        "prettier": "^2.2.1"
+        "prettier": "^2.3.0"
     },
     "browserslist": {
         "production": [
