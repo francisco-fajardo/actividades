@@ -40,7 +40,7 @@ jobs:
           server-dir: ./actividades/
 
       - name: Purge Cache of Cloudflare
-        uses: jakejarvis/cloudflare-purge-action@v1.0.0
+        uses: jakejarvis/cloudflare-purge-action@master
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
