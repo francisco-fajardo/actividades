@@ -83,11 +83,11 @@
             </label>
         </div>
 
-        <div class="col s12 m6 center">
+        <div class="col s12 m6 center" style="padding-top: 1.5rem">
             <button type="submit" class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
         </div>
 
-        <div class="col s12 m6 center">
+        <div class="col s12 m6 center" style="padding-top: 1.5rem">
             <button class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>

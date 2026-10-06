@@ -19,15 +19,27 @@
             <th>Año</th>
             <th>Mención</th>
             <th>Sección</th>
+            <th>Opciones</th>
         </tr>
     </thead>
 
     <tbody>
 @foreach ($courses as $course)
-        <tr data-href onclick="window.location='{{ route('user.courses.edit', $course) }}'">
+        <tr>
             <td>{{ $course->year }}</td>
             <td>{{ $course->career }}</td>
             <td>{{ $course->section }}</td>
+            <td>
+                <a class="waves-effect waves-light btn tooltipped" href="{{ route('user.courses.edit', $course) }}" data-position="bottom" data-tooltip="Editar">
+                    <i class="material-icons">edit</i>
+                </a>
+                <form action="{{ route('user.courses.delete', $course) }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    <button type="submit" class="waves-effect waves-light btn red darken-2 tooltipped" data-position="bottom" data-tooltip="Eliminar" onclick="return confirm('¿Está seguro de que desea eliminar este curso?')">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </form>
+            </td>
         </tr>
 @endforeach
     </tbody>

@@ -26,11 +26,11 @@
             <label for="description">Descripción</label>
         </div>
 
-        <div class="col s12 m6">
+        <div class="col s12 m6 center" style="padding-top: 1.5rem">
             <button class="waves-effect waves-light btn-large" type="submit" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
         </div>
 
-        <div class="col s12 m6">
+        <div class="col s12 m6 center" style="padding-top: 1.5rem">
             <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>

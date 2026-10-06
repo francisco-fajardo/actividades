@@ -15,15 +15,29 @@
 
 <table class="centered highlight">
     <thead>
-        <th>Curso</th>
-        <th>Asignatura</th>
+        <tr>
+            <th>Curso</th>
+            <th>Asignatura</th>
+            <th>Opciones</th>
+        </tr>
     </thead>
 
     <tbody>
         @foreach ($activities as $activity)
-        <tr data-href onclick="window.location='{{ route('user.activity.edit', $activity) }}'">
+        <tr>
             <td>{{ $activity->course->full_name }}</td>
             <td>{{ $activity->subject }}</td>
+            <td>
+                <a class="waves-effect waves-light btn tooltipped" href="{{ route('user.activity.edit', $activity) }}" data-position="bottom" data-tooltip="Editar">
+                    <i class="material-icons">edit</i>
+                </a>
+                <form action="{{ route('user.activity.delete', $activity) }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    <button type="submit" class="waves-effect waves-light btn red darken-2 tooltipped" data-position="bottom" data-tooltip="Eliminar" onclick="return confirm('¿Está seguro de que desea eliminar esta actividad?')">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

@@ -26,7 +26,7 @@
             <label for="description">Descripción</label>
         </div>
 
-        <div class="col s12">
+        <div class="col s12 center" style="padding-top: 1.5rem">
             <button class="waves-effect waves-light btn-large" type="submit" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
         </div>
     </div>

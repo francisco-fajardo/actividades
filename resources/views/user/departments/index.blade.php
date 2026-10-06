@@ -18,14 +18,26 @@
         <tr>
             <th>Nombre</th>
             <th>Descripción</th>
+            <th>Opciones</th>
         </tr>
     </thead>
 
     <tbody>
 @foreach ($departments as $department)
-        <tr data-href onclick="window.location='{{ route('user.departments.edit', $department) }}'">
+        <tr>
             <td>{{ $department->name }}</td>
             <td>{{ $department->description }}</td>
+            <td>
+                <a class="waves-effect waves-light btn tooltipped" href="{{ route('user.departments.edit', $department) }}" data-position="bottom" data-tooltip="Editar">
+                    <i class="material-icons">edit</i>
+                </a>
+                <form action="{{ route('user.departments.delete', $department) }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    <button type="submit" class="waves-effect waves-light btn red darken-2 tooltipped" data-position="bottom" data-tooltip="Eliminar" onclick="return confirm('¿Está seguro de que desea eliminar este departamento?')">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </form>
+            </td>
         </tr>
 @endforeach
     </tbody>

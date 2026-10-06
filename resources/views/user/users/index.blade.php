@@ -15,22 +15,36 @@
 
 <table class="centered highlight">
     <thead>
-        <th>Nombre</th>
-        <th>Correo</th>
-        <th>Departamento</th>
-        <th>Usuario</th>
-        <th>Administrador</th>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Departamento</th>
+            <th>Usuario</th>
+            <th>Administrador</th>
+            <th>Opciones</th>
+        </tr>
     </thead>
 
     <tbody>
         @foreach ($users as $user)
         @if (Auth::user()->id !== $user->id)
-        <tr data-href onclick="window.location='{{ route('user.users.edit', $user) }}'">
+        <tr>
             <td>{{ $user->full_name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->department->name }}</td>
             <td>{{ $user->username }}</td>
             <td>{{ $user->isAdmin() ? 'Sí' : 'No' }}</td>
+            <td>
+                <a class="waves-effect waves-light btn tooltipped" href="{{ route('user.users.edit', $user) }}" data-position="bottom" data-tooltip="Editar">
+                    <i class="material-icons">edit</i>
+                </a>
+                <form action="{{ route('user.users.delete', $user) }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    <button type="submit" class="waves-effect waves-light btn red darken-2 tooltipped" data-position="bottom" data-tooltip="Eliminar" onclick="return confirm('¿Está seguro de que desea eliminar este usuario?')">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </form>
+            </td>
         </tr>
         @endif
         @endforeach

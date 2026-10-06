@@ -8,6 +8,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
+        "build": "npm run production",
         "format": "prettier --write ."
     },
     "devDependencies": {
@@ -15,5 +16,8 @@
         "laravel-mix": "^6.0.19",
         "postcss": "^8.1.14",
         "prettier": "^2.3.0"
+    },
+    "dependencies": {
+        "yargs": "^17.7.3"
     }
 }
