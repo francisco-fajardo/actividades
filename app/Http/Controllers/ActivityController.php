@@ -111,6 +111,15 @@ class ActivityController extends Controller
         $request->validate($this->rules());
 
         $input = $request->all();
+        if (!empty($input["activity"])) {
+            $decoded = base64_decode($input["activity"], true);
+            if (
+                $decoded !== false &&
+                base64_encode($decoded) === $input["activity"]
+            ) {
+                $input["activity"] = $decoded;
+            }
+        }
         $input["user_id"] = Auth::user()->id;
         Activity::create($input);
 
@@ -164,6 +173,15 @@ class ActivityController extends Controller
             throw new UnauthorizedHttpException(
                 "Esta actividad no la puedes editar"
             );
+        }
+        if (!empty($input["activity"])) {
+            $decoded = base64_decode($input["activity"], true);
+            if (
+                $decoded !== false &&
+                base64_encode($decoded) === $input["activity"]
+            ) {
+                $input["activity"] = $decoded;
+            }
         }
         $input["user_id"] = Auth::user()->id;
         $activity->update($input);

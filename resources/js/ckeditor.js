@@ -47,6 +47,27 @@ ClassicEditor.create(document.getElementById("activity"), {
 })
     .then(function (editor) {
         window.editor = editor;
+
+        var textarea = document.getElementById("activity");
+        if (textarea && textarea.form) {
+            textarea.form.addEventListener("submit", function () {
+                var content = editor.getData();
+                if (content) {
+                    try {
+                        textarea.value = btoa(
+                            encodeURIComponent(content).replace(
+                                /%([0-9A-F]{2})/g,
+                                function (match, p1) {
+                                    return String.fromCharCode("0x" + p1);
+                                }
+                            )
+                        );
+                    } catch (e) {
+                        textarea.value = content;
+                    }
+                }
+            });
+        }
     })
     .catch(function (err) {
         console.error(err);
