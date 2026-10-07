@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="center">
-    <h1>Editar</h1>
+    <h1 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 3rem;">edit</i> Editar Usuario</h1>
 </div>
 
 <form action="{{ route('user.users.update', $user) }}" method="POST">
@@ -59,7 +59,13 @@
 
         <div class="col s12 center">
             <label>
-                <input type="checkbox" name="admin" class="filled-in" @if ($user->isAdmin()) checked @endif />
+                <input
+                    type="checkbox"
+                    name="admin"
+                    class="filled-in"
+                    @if ($user->isAdmin()) checked @endif
+                    onchange="if (this.checked && !confirm('Un administrador tiene acceso total al sistema. ¿Está seguro de hacer el cambio?')) { this.checked = false; } else if (!this.checked && !confirm('¿Está seguro de revocar el acceso de administrador a este usuario?')) { this.checked = true; }"
+                />
                 <span>Administrador</span>
             </label>
         </div>
@@ -69,7 +75,7 @@
         </div>
 
         <div class="col s12 m6 center" style="padding-top: 1.5rem">
-            <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
+            <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); if (confirm('¿Está seguro de que desea eliminar este usuario?')) { document.getElementById('delete-form').submit(); }" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>
 </form>

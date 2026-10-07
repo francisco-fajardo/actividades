@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="center">
-    <h1>{{ $activity->subject }}</h1>
+    <h1 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 3rem;">description</i> {{ $activity->subject }}</h1>
     <h5>{{ $user->full_name }}</h5>
     <h5>{{ $course->full_name }}</h5>
 </div>

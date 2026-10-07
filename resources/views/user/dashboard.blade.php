@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="center">
-    <h4>Panel de Control</h4>
+    <h4 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 2rem;">dashboard</i> Panel de Control</h4>
 
     <p>Bienvenido, <strong>{{ Auth::user()->full_name }}</strong></p>
 </div>

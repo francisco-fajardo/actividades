@@ -13,22 +13,22 @@
                 <h5 class="grey-text text-darken-3" style="font-size: 1.1rem; font-weight: 600;">Contacto</h5>
                 <ul>
                     <li>
-                        <a class="grey-text text-darken-1 valign-wrapper" href="https://www.facebook.com/groups/555209544587295">
+                        <a class="grey-text text-darken-1 valign-wrapper footer-link" href="https://www.facebook.com/groups/555209544587295">
                             <i class="material-icons tiny left">public</i>Facebook
                         </a>
                     </li>
                     <li>
-                        <a class="grey-text text-darken-1 valign-wrapper" href="https://twitter.com/francis90515194">
+                        <a class="grey-text text-darken-1 valign-wrapper footer-link" href="https://twitter.com/francis90515194">
                             <i class="material-icons tiny left">chat</i>Twitter
                         </a>
                     </li>
                     <li>
-                        <a class="grey-text text-darken-1 valign-wrapper" href="https://github.com/francisco-fajardo">
+                        <a class="grey-text text-darken-1 valign-wrapper footer-link" href="https://github.com/francisco-fajardo">
                             <i class="material-icons tiny left">code</i>GitHub
                         </a>
                     </li>
                     <li>
-                        <a class="grey-text text-darken-1 valign-wrapper" href="mailto:contacto@franciscofajardo.com">
+                        <a class="grey-text text-darken-1 valign-wrapper footer-link" href="mailto:contacto@franciscofajardo.com">
                             <i class="material-icons tiny left">email</i>Correo
                         </a>
                     </li>

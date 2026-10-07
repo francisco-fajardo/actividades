@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="center">
-    <h1>Añadir Departamento</h1>
+    <h1 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 3rem;">add</i> Añadir Departamento</h1>
 </div>
 
 <form action="{{ route('user.departments.store') }}" method="POST">

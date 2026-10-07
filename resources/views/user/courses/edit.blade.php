@@ -9,7 +9,7 @@ $sections = ['U', 'A', 'B'];
 
 @section('content')
 <div class="center">
-    <h1>Editar Curso</h1>
+    <h1 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 3rem;">edit</i> Editar Curso</h1>
 </div>
 
 <form action="{{ route('user.courses.update', $course) }}" method="POST">
@@ -52,7 +52,7 @@ $sections = ['U', 'A', 'B'];
         </div>
 
         <div class="col s12 m6 center" style="padding-top: 1.5rem">
-            <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit()" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
+            <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); if (confirm('¿Está seguro de que desea eliminar este curso?')) { document.getElementById('delete-form').submit(); }" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>
 </form>

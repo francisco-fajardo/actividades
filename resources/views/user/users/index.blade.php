@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="center">
-    <h1>Usuarios</h1>
+    <h1 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 3rem;">person</i> Usuarios</h1>
 </div>
 
 <div class="row">

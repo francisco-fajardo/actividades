@@ -1,8 +1,9 @@
 <nav class="white z-depth-1">
 @section('navbar')
     <div class="nav-wrapper container">
-        <a href="{{ url('/') }}" class="brand-logo valign-wrapper" style="height: 100%">
-            <img src="{{ asset('img/logo-franciscofajardo.png') }}" alt="E.T. Francisco Fajardo" style="height: 42px; width: auto; vertical-align: middle;" />
+        <a href="{{ url('/') }}" class="brand-logo valign-wrapper tooltipped" data-position="bottom" data-tooltip="Actividades Fajardo" style="height: 100%">
+            <img src="{{ asset('img/logo-franciscofajardo.png') }}" alt="E.T. Francisco Fajardo" style="height: 42px; width: auto; vertical-align: middle; margin-right: 8px;" />
+            <span class="grey-text text-darken-3" style="font-size: 1.3rem; font-weight: 600;">Sistema AF</span>
         </a>
 
         <a href="#" data-target="sidenav-menu" class="sidenav-trigger grey-text text-darken-3"><i class="material-icons">menu</i></a>

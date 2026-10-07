@@ -34,3 +34,11 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.footer-link {
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-link:hover {
+    opacity: 0.75;
+}
