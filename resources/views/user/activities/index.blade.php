@@ -8,8 +8,13 @@
 </div>
 
 <div class="row">
-    <div class="col s8 offset-s2 center">
-        <a href="{{ route('user.activity.new') }}" class="waves-effect waves-light btn"><i class="material-icons left">add</i> Añadir</a>
+    <div class="col s12 center" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <a href="{{ route('user.dashboard') }}" class="waves-effect waves-light btn grey lighten-1 grey-text text-darken-3 tooltipped" data-position="bottom" data-tooltip="Volver al Panel de Control">
+            <i class="material-icons left">dashboard</i> Panel
+        </a>
+        <a href="{{ route('user.activity.new') }}" class="waves-effect waves-light btn">
+            <i class="material-icons left">add</i> Añadir
+        </a>
     </div>
 </div>
 

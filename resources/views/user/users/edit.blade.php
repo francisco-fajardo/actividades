@@ -70,11 +70,15 @@
             </label>
         </div>
 
-        <div class="col s12 m6 center" style="padding-top: 1.5rem">
+        <div class="col s12 m4 center" style="padding-top: 1.5rem">
+            <a href="{{ route('user.users.index') }}" class="waves-effect waves-light btn-large grey lighten-1 grey-text text-darken-3" style="width: 100%"><i class="material-icons left">arrow_back</i> Volver</a>
+        </div>
+
+        <div class="col s12 m4 center" style="padding-top: 1.5rem">
             <button type="submit" class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left">save</i> Guardar</button>
         </div>
 
-        <div class="col s12 m6 center" style="padding-top: 1.5rem">
+        <div class="col s12 m4 center" style="padding-top: 1.5rem">
             <button class="waves-effect waves-light btn-large red darken-2" onclick="event.preventDefault(); if (confirm('¿Está seguro de que desea eliminar este usuario?')) { document.getElementById('delete-form').submit(); }" style="width: 100%"><i class="material-icons left">close</i> Eliminar</button>
         </div>
     </div>

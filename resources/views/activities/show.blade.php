@@ -9,13 +9,21 @@
     <h5>{{ $course->full_name }}</h5>
 </div>
 
-<table class="centered highlight">
+<div class="row" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+    <div class="col s12 center" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <a href="{{ route('home') }}" class="waves-effect waves-light btn grey lighten-1 grey-text text-darken-3 tooltipped" data-position="bottom" data-tooltip="Volver al inicio">
+            <i class="material-icons left">arrow_back</i> Inicio
+        </a>
+    </div>
+</div>
+
+<table class="centered highlight datatable">
     <thead>
         <tr>
             <th>Asignatura</th>
             <th>Profesor</th>
-            <th>Opciones</th>
-        <tr>
+            <th class="no-sort">Opciones</th>
+        </tr>
     </thead>
 
     <tbody>

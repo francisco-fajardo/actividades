@@ -14,8 +14,8 @@ main .container {
     background-color: #fff;
     border-radius: 15px;
     padding: 2.5em;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -23,6 +23,19 @@ main .container {
 
 main .container:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+main .container > :first-child,
+main .container > form > :first-child {
+    margin-top: 0 !important;
+}
+
+main .container h1,
+main .container h2,
+main .container h3,
+main .container h4 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 }
 
 [data-href] {
@@ -53,15 +66,27 @@ img {
     margin-top: 1.5rem;
 }
 
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter {
+.dataTables_wrapper .dataTables_length {
+    float: left;
     margin-bottom: 1.2rem;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.dataTables_wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .dataTables_wrapper .dataTables_length label,
 .dataTables_wrapper .dataTables_filter label {
     font-size: 0.95rem;
-    color: #555;
+    color: #616161;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -70,39 +95,75 @@ img {
 .dataTables_wrapper .dataTables_length select {
     display: inline-block !important;
     width: auto !important;
-    height: 2rem !important;
-    padding: 0 0.5rem !important;
-    border: 1px solid #ccc !important;
-    border-radius: 4px !important;
-    background-color: #fff !important;
+    height: 2.2rem !important;
+    padding: 0 0.6rem !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 6px !important;
+    background-color: #fafafa !important;
+    color: #424242 !important;
+    outline: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dataTables_wrapper .dataTables_length select:focus {
+    border-color: #1a237e !important;
+    box-shadow: 0 0 0 1px #1a237e !important;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    display: inline-flex;
+    align-items: center;
+}
+
+.dataTables_wrapper .dataTables_filter label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+
+.dataTables_wrapper .dataTables_filter label::before {
+    font-family: "Material Icons";
+    content: "search";
+    font-size: 1.3rem;
+    color: #757575;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .dataTables_wrapper .dataTables_filter input {
     display: inline-block !important;
-    width: 220px !important;
-    height: 2rem !important;
-    margin: 0 0 0 0.5rem !important;
-    padding: 0 0.5rem !important;
-    border: 1px solid #ccc !important;
-    border-radius: 4px !important;
-    background-color: #fff !important;
+    width: 240px !important;
+    height: 2.2rem !important;
+    margin: 0 !important;
+    padding: 0 2rem 0 0.75rem !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 6px !important;
+    background-color: #fafafa !important;
     box-sizing: border-box !important;
-    transition: border-color 0.2s, box-shadow 0.2s !important;
+    color: #333 !important;
+    transition: all 0.2s ease !important;
 }
 
 .dataTables_wrapper .dataTables_filter input:focus {
-    border: 1px solid #26a69a !important;
-    box-shadow: 0 0 0 1px #26a69a !important;
+    background-color: #fff !important;
+    border-color: #1a237e !important;
+    box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.15) !important;
     outline: none !important;
 }
 
 .dataTables_wrapper .dataTables_info {
+    float: left;
     padding-top: 1rem;
     font-size: 0.9rem;
-    color: #666;
+    color: #757575;
 }
 
 .dataTables_wrapper .dataTables_paginate {
+    float: right;
     padding-top: 0.8rem;
     text-align: right;
 }
@@ -110,28 +171,31 @@ img {
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     display: inline-block;
     min-width: 2rem;
-    padding: 0.35rem 0.75rem;
-    margin-left: 3px;
-    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    margin-left: 4px;
+    border-radius: 6px;
     border: 1px solid #e0e0e0;
     cursor: pointer;
-    color: #333 !important;
+    color: #424242 !important;
     background: #fff;
     transition: all 0.2s;
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background: #e0e0e0 !important;
+    background: #f5f5f5 !important;
+    border-color: #bdbdbd !important;
     color: #111 !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    background: #26a69a !important;
-    border-color: #26a69a !important;
+    background: #1a237e !important;
+    border-color: #1a237e !important;
     color: #fff !important;
+    box-shadow: 0 2px 4px rgba(26, 35, 126, 0.25);
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
@@ -140,10 +204,53 @@ img {
     opacity: 0.4;
     background: #fafafa !important;
     border-color: #eee !important;
-    color: #999 !important;
+    color: #9e9e9e !important;
+    box-shadow: none;
 }
 
 table.dataTable thead th {
+    position: relative;
     border-bottom: 2px solid #e0e0e0 !important;
     font-weight: 600;
+    color: #424242;
+    cursor: pointer;
+    user-select: none;
+    padding-right: 1.8rem !important;
+}
+
+table.dataTable thead th.no-sort {
+    cursor: default;
+    padding-right: 0.75rem !important;
+}
+
+table.dataTable thead th.sorting::after,
+table.dataTable thead th.sorting_asc::after,
+table.dataTable thead th.sorting_desc::after {
+    font-family: "Material Icons";
+    font-size: 1.1rem;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.35;
+}
+
+table.dataTable thead th.sorting::after {
+    content: "unfold_more";
+}
+
+table.dataTable thead th.sorting_asc::after {
+    content: "arrow_upward";
+    opacity: 0.9;
+    color: #1a237e;
+}
+
+table.dataTable thead th.sorting_desc::after {
+    content: "arrow_downward";
+    opacity: 0.9;
+    color: #1a237e;
+}
+
+table.dataTable thead th.no-sort::after {
+    content: none !important;
 }

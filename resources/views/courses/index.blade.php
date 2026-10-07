@@ -7,7 +7,7 @@
     <h1 class="valign-wrapper" style="display: inline-flex;"><i class="material-icons left" style="font-size: 3rem;">description</i> Actividades</h1>
 </div>
 
-<table class="centered highlight">
+<table class="centered highlight datatable">
     <thead>
         <tr>
             <th>Año</th>

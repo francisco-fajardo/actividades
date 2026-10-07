@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
             $(this).DataTable({
                 responsive: true,
                 language: {
-                    search: "Buscar:",
-                    searchPlaceholder: "Escriba para filtrar...",
+                    search: "",
+                    searchPlaceholder: "Buscar...",
                     lengthMenu: "Mostrar _MENU_ registros",
                     info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
                     infoEmpty: "Mostrando 0 a 0 de 0 registros",
