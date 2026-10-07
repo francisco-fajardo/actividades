@@ -35,7 +35,11 @@
         @if (Auth::user()->id !== $user->id)
         <tr>
             <td>{{ $user->full_name }}</td>
-            <td>{{ $user->email }}</td>
+            <td>
+                <span class="text-truncate-email tooltipped" data-position="top" data-tooltip="{{ $user->email }}">
+                    {{ $user->email }}
+                </span>
+            </td>
             <td>{{ $user->department->name }}</td>
             <td>{{ $user->username }}</td>
             <td>{{ $user->isAdmin() ? 'Sí' : 'No' }}</td>

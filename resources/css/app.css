@@ -59,6 +59,15 @@ img {
     color: #1a237e !important;
 }
 
+.text-truncate-email {
+    display: inline-block;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
 /* DataTables Materialize Style */
 .dataTables_wrapper {
     position: relative;
