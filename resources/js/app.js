@@ -5,8 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // DataTables Initialization
     if (window.jQuery && jQuery.fn.DataTable) {
         $(".datatable").each(function () {
-            $(this).DataTable({
-                responsive: true,
+            var $table = $(this);
+            if (!$table.parent().hasClass("table-responsive")) {
+                $table.wrap("<div class='table-responsive'></div>");
+            }
+
+            $table.DataTable({
+                responsive: false,
+                scrollX: true,
                 language: {
                     search: "",
                     searchPlaceholder: "Buscar...",

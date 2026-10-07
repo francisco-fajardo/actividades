@@ -78,7 +78,13 @@
 
         <div class="col s12 center">
             <label>
-                <input type="checkbox" name="admin" class="filled-in" {{ old('admin') ? 'checked' : '' }} />
+                <input
+                    type="checkbox"
+                    name="admin"
+                    class="filled-in"
+                    {{ old('admin') ? 'checked' : '' }}
+                    onchange="if (this.checked && !confirm('Un administrador tiene acceso total al sistema. ¿Está seguro de hacer el cambio?')) { this.checked = false; }"
+                />
                 <span>Administrador</span>
             </label>
         </div>
