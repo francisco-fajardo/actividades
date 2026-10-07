@@ -7,7 +7,10 @@
         @csrf
 
         <div class="row">
-            <h3 class="center">Iniciar sesión</h3>
+            <h3 class="center valign-wrapper" style="justify-content: center;">
+                <i class="material-icons medium" style="margin-right: 10px;">lock</i>
+                Iniciar sesión
+            </h3>
 
             <div class="input-field col s12">
                 <i class="material-icons prefix">person</i>

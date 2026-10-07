@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<table class="centered highlight">
+<table class="centered highlight datatable">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -21,7 +21,7 @@
             <th>Departamento</th>
             <th>Usuario</th>
             <th>Administrador</th>
-            <th>Opciones</th>
+            <th class="no-sort">Opciones</th>
         </tr>
     </thead>
 

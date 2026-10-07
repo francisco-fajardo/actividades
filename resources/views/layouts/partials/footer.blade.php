@@ -6,7 +6,7 @@
                     <img src="{{ asset('img/logo-franciscofajardo.png') }}" alt="E.T. Francisco Fajardo" style="height: 48px; width: auto; margin-right: 12px;" />
                     <h5 class="grey-text text-darken-3" style="margin: 0; font-size: 1.3rem; font-weight: 600;">E.T. "Francisco Fajardo"</h5>
                 </div>
-                <p class="grey-text text-darken-1">Formamos estudiantes con miras al éxito de un país productivo</p>
+                <p class="grey-text text-darken-1">Formamos estudiantes con miras al éxito de un país productivo.</p>
             </div>
 
             <div class="col l4 offset-l2 s12">

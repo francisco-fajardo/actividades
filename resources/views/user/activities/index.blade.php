@@ -13,12 +13,12 @@
     </div>
 </div>
 
-<table class="centered highlight">
+<table class="centered highlight datatable">
     <thead>
         <tr>
             <th>Curso</th>
             <th>Asignatura</th>
-            <th>Opciones</th>
+            <th class="no-sort">Opciones</th>
         </tr>
     </thead>
 
