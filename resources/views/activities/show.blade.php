@@ -30,7 +30,7 @@
         @foreach ($activities as $activity)
         <tr>
             <td>{{ $activity->subject }}</td>
-            <td>{{ ucwords(strtolower($activity->user->full_name)) }}</td>
+            <td>{{ucwords(strtolower($activity->user->full_name)) }}</td>
             <td>
                 <a class="waves-effect waves-light btn tooltipped" href="{{ route('activity.show', $activity) }}" data-position="bottom" data-tooltip="Ver"><i class="material-icons">visibility</i></a>
                 <a class="waves-effect waves-light btn tooltipped" href="{{ route('activity.download', $activity) }}" data-position="bottom" data-tooltip="Descargar"><i class="material-icons">get_app</i></a>
