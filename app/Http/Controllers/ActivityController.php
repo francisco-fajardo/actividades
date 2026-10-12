@@ -109,8 +109,10 @@ class ActivityController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules());
-
         $input = $request->all();
+        if (!empty($input["subject"])) {
+            $input["subject"] = mb_convert_case($input["subject"], MB_CASE_TITLE, "UTF-8");
+        }        
         if (!empty($input["activity"])) {
             $decoded = base64_decode($input["activity"], true);
             if (
