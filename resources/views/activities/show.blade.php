@@ -29,8 +29,8 @@
     <tbody>
         @foreach ($activities as $activity)
         <tr>
-            <td>{{ucwords(strtolower($activity->subject)) }}</td>
-            <td>{{ucwords(strtolower($activity->user->full_name)) }}</td>
+            <td>{{ mb_convert_case($activity->subject, MB_CASE_TITLE, "UTF-8") }}</td>
+            <td>{{$activity->user->full_name}}</td>
             <td>
                 <a class="waves-effect waves-light btn tooltipped" href="{{ route('activity.show', $activity) }}" data-position="bottom" data-tooltip="Ver"><i class="material-icons">visibility</i></a>
                 <a class="waves-effect waves-light btn tooltipped" href="{{ route('activity.download', $activity) }}" data-position="bottom" data-tooltip="Descargar"><i class="material-icons">get_app</i></a>
